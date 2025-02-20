@@ -1,0 +1,410 @@
+/*Google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* Selector universal: Aplica estilos a todos los elementos */
+*{
+    font-family: "Poppins", sans-serif;
+    margin: 0; /* Elimina márgenes y linea 8 */
+    padding: 0;  /*relleno predeterminados */
+    box-sizing: border-box;    /* Mantiene el tamaño total incluyendo padding y border */
+    list-style: none;   /* Quita los estilos de listas (puntos y números) */
+    text-decoration: none;  /* Elimina subrayado en enlaces */
+    scroll-padding-top: 2rem; /* Espaciado superior al hacer scroll en anclajes */
+    scroll-behavior: smooth; /* Efecto de desplazamiento suave en la página */
+
+}
+
+/*Algunas variables*/
+:root{
+    --text-color:#021f2a; /* Define una variable para el color de texto */
+    --bg-color:#fff; /* Define una variable para el color de fondo */
+}
+/* Personalizando Scroll bar en navegadores basados en WebKit (como Chrome y Edge).*/
+html::-webkit-scrollbar{
+    width: 0.5rem; 
+}
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb{
+    background: var(--text-color);
+    border-radius: 5rem;
+}
+section{
+    padding: 50px 100px;
+} /*aqui terminamos el paso 1*/
+header{ /*Header del menu de navegacion*/
+    position: fixed; /* Fija la barra en la parte superior de la pantalla */
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    display: flex; /*Para organizar los elementos */
+    align-items: center; /* Alinea los elementos verticalmente */
+    justify-content: space-between; /* Separa el logo y el menú */
+    padding: 20px 100px; /* Espaciado interno en la barra de navegación */
+    transition: 0.5s; /*efectos suaves (por ejemplo, cuando el usuario hace scroll).*/
+    /*background: turquoise; color de fondo de la barra de navegacion*/
+}
+header.shadow{
+    background: var(--bg-color);
+    box-shadow: 0 0 4px rgb(14 55 54 / 15%);
+}
+header.shadow .logo{
+    color: var(--text-color);
+}
+header.shadow .navbar a{
+    color: var(--text-color);
+}
+header.shadow .navbar a::after{
+    background: var(--text-color);
+}
+.logo{
+    font-size: 1rem; /*Tamaño del texto*/
+    font-weight: 600; /*Grosor del texto*/
+    color: var(--bg-color);/*cambiamos el color del texto "Travel"*/
+}
+/*!nav-bar*/
+.navbar{
+    display: flex; /*para que los elementos esten en linea*/
+    column-gap: 5rem; //*espacios entre elementos, en este caso los textos*/
+}
+.navbar li{ /*etiqueta <li> en el header*/
+    position: relative; /*posicionar elementos hijos dentro de ellos*/
+}
+.navbar a{ /*efecto de subrayado en donde estaran los enlaces*/
+    font-size: 1rem; /*tamaño de la fuente*/
+    font-weight: 500; /*grosor de la fuente*/
+    color: var(--bg-color);
+}
+.navbar a::after{ /*animacion del subrayado*/
+    content: ''; /*se coloca '' para tener un elemento vacio*/
+    width: 0%; /*puso 0 por el width de hover*/
+    height: 2px;
+    background: var(--bg-color);
+    position: absolute;
+    bottom: -4px; /*distancia de la linea de bajo del text*/
+    left: 0;
+    transition: 0.4s;
+}
+.navbar a:hover::after, /* a viene de la etiqueta <a> Efecto hover: hace que la línea aparezca */
+.navbar .home-active::after{ /* Si el enlace tiene la clase 'home-active', la línea también aparece */
+    width: 100%;
+}
+#menu-icon{ /*son las 3 rayas cuando se hace chiquita la pantalla*/
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100001;
+    display: none; /* Oculta el ícono por defecto pero se muestra en mobile */
+}
+.container{ /*Container de home*/
+    width: 100%;
+    min-height: 640px;
+    position: relative;
+    display: flex; /* Para organizar los elementos en fila o columna, !en este caso los textos*/
+    align-items: center;
+}
+.container img { /*Estilo para las imagenes de home que estan dentro del contenedor*/
+    position: absolute; /* Se coloca encima del contenido del contenedor */
+    width: 100%; /* La imagen ocupa todo el ancho y altura */
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    object-position: center; /* Centra la imagen */
+    z-index: 1;
+    filter: blur(1px); /*Aqui le añadi un blur a las imagenes*/
+}
+.swiper-pagination-bullet{
+    padding: 7px; /*!Tamaño de las bolitas del slider*/
+}
+.swiper-pagination-bullet-active{
+    background: var(--bg-color) !important; /*!Bolita de abajo del slider*/
+}
+/*!Home*/
+.home-text{/*Estilo para sobreponer el texto */
+    position: absolute;  /* Para posicionarlo encima de la imagen */
+    z-index: 10;  /* Mayor que la imagen */
+    top: 30%;  /* Ajusta la posición verticalmente */
+    left: 7%;  /* Ajusta la posición horizontalmente */
+    color: var(--bg-color);
+}
+.home-text span{ /*Estilo para el texto de discovery*/
+    color: var(--bg-color);
+    font-weight: 400;/*grosor del texto*/ 
+}
+.home-text h1{ /*Estilo para el texto de Explore*/
+    color: var(--bg-color);
+    font-size: 3.4rem; /* tamaño del texto, rem se usa para mas flexibilidad */
+    font-weight: 700; /*texto grueso*/
+    margin-bottom: 1rem; /* Espacio  del texto 'Explore' debajo del título para que no quede pegado al texto de arriba */
+}
+.btn { /*estilo de boton*/
+    padding: 0.7rem; 
+    background: var(--text-color); /*color de fondo del boton*/
+    color: var(--bg-color); /*color de la fuente*/
+    font-weight: 500;
+}
+.btn:hover { /*estilo para que cuando pase el cursor aparezca el color de bg*/
+    background: #01151d;
+}
+
+/*?Places:: heading es la clase del texto*/
+/* Centra el encabezado */
+.heading{
+    text-align: center;
+}
+/* Estiliza el título dentro del encabezado */
+.heading h1{
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-transform: capitalize; /* Primera letra en mayúscula */
+    color: var(--text-color);
+}
+
+/*!Places*/
+/* Crea una cuadrícula para los lugares */
+.places-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px,auto));
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+/* Caja de cada lugar */
+.places-container .box{
+    position: relative;
+}
+/* Imagen del lugar */
+.place-img{
+    width: 250px;
+    height: 100%;
+    overflow: hidden;
+}
+/* Hace que la imagen ocupe todo el espacio disponible */
+.place-img img{
+    width: 100%;
+    height: 100%;
+}
+/* Efecto de zoom al pasar el mouse */
+.place-img img:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
+/* Texto dentro de la imagen */
+.place-text{
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+}
+/* Estiliza el título dentro de la imagen */
+.place-text h2{
+    color: var(--bg-color);
+    font-weight: 400;
+    font-size: 1rem;
+}
+/* Ícono en la esquina de la imagen */
+.place-icon{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    background: var(--text-color);
+    color: var(--bg-color);
+    font-size: 20px;
+    cursor: pointer;
+}
+/* Cambia el color del ícono cuando el mouse pasa sobre la caja */
+.places-container .box:hover .place-icon{
+    background: #01151d;
+}
+/*!Video*/
+/* Centra el video */
+.video-container{
+    display: grid;
+    place-items:center;
+    margin-top: 3rem;
+}
+/* Ajusta el tamaño del video */
+.video-container video{
+    width: 768px;
+    border-radius: 10px;
+}
+/*!Sobre - about*/
+/* Crea una cuadrícula adaptable */
+.about{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+/* Estiliza el título */
+.about-text h1{
+    font-size: 1.7rem;
+    text-transform: capitalize;
+    color: var(--text-color);
+}
+/* Estiliza el párrafo */
+.about-text p{
+    font-size: 0.938rem;
+    text-align: justify;
+    margin: 0.5rem 0 1.7rem ;
+}
+/* Ajusta el contenedor de la imagen */
+.about-img{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px; /* Opcional, bordes redondeados */
+}
+/* Ajusta la imagen */
+.about-img img{
+    width: 100%;
+    height: auto;
+}
+/* Efecto de zoom en la imagen al pasar el mouse */
+.about-img img:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+/*PIE DE PÁGINA */
+/* Organiza el pie de página en una cuadrícula */
+.footer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px,auto));
+    gap: 1rem;
+    color: var(--text-color);
+}
+/* Estiliza los títulos dentro del pie de página */
+.footer-text h2{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom:10px;
+}
+/* Estiliza los párrafos */
+.footer-box p{
+    font-size: 00.93rem;
+    margin-bottom: 10px;
+}
+/* Acomoda los iconos de redes sociales */
+.social{
+    display: flex;
+    align-items: center; 
+}
+/* Ajusta el tamaño y espaciado de los iconos */
+.social a{
+    font-size: 24px;
+    color: var(--text-color);
+    margin-right: 1rem;
+}
+/*!Estiliza los enlaces dentro del pie de página */
+.footer-box h3{
+    font-size: 600;
+    margin-bottom: 10px;
+}
+.footer-box li a{
+    color: var(--text-color);
+}
+/* Estiliza el texto de copyright */
+.copyright{
+    padding: 20px;
+    text-align: center;
+    color: var(--text-color);
+}
+/*!---HACIENDO LA PÁGINA RESPONSIVA --- */
+/*!Para pantallas menores a 991px */
+@media (max-width:991px) {
+    header{
+        padding: 18px 4%;
+    }
+    section{
+        padding: 50px 4%;
+    }
+    .home-text{
+        padding: 0 4%;
+    }
+}
+/*!Para pantallas menores a 881px */
+@media (max-width:881px){
+    .home-text h1{
+        font-size: 3rem;
+    }
+    .video-container video {
+        width: 568px;
+    }
+}
+/*!Para pantallas menores a 768px */
+@media (max-width:768px){
+    header{
+        padding: 12px 4%;
+    }
+    /*!Muestra el icono del menú en móviles */
+    #menu-icon{
+        color: var(--bg-color);
+        display: initial;
+    }
+    header.shadow #menu-icon{
+        color: var(--text-color);
+    }
+    /*!Estilos del menú desplegable */
+    header .navbar{
+        position: absolute;
+        width: 240px;
+        height: 100vh;
+        top: 100%;
+        right: -100%;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-color);
+        row-gap: 1.4rem;
+        padding: 20px;
+        box-shadow: 4px 4px 0 4px rgb(14 55 54 / 15%);
+        transition: 0.2s ease;
+        text-align: left;
+    }
+    .navbar a{
+        color: var(--text-color);
+    }
+    .navbar a::after{
+        display: none;
+    }
+    .navbar.active{
+        right: 0;
+    }
+    .home-text h1{
+        font-size: 2.4rem;
+    }
+    .about-text p br{
+        display: contents;
+    }
+    .heading h1, 
+    .about-text h1{
+        font-size: 1.5rem;
+    }
+}
+
+/*!Para pantallas menores a 662px */
+@media (max-width:662px) {
+    .video-container video{
+        width: 100%; /* Hace que el video ocupe todo el ancho disponible en la pantalla */
+    }
+}
+/*!Para pantallas menores a 452px */
+@media (max-width:452px){
+    .container{
+        min-height: 554px; /* Establece una altura mínima para el contenedor */
+    }
+    .home-text h1{
+        font-size: 1.7rem; /* Reduce el tamaño del título en la sección de inicio */
+    }
+    .container img{
+        object-position: left; /* Ajusta la posición de la imagen dentro del contenedor, alineándola a la izquierda */
+    }
+    .heading h1, 
+    .about-text h1{
+        font-size: 1.2rem; /* Reduce el tamaño del texto de los encabezados en las secciones de "encabezado" y "sobre nosotros" */
+    }
+    .about-text{ 
+        text-align: center; /* Centra el texto en la sección "sobre nosotros" */
+    }
+}
