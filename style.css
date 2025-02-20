@@ -129,19 +129,22 @@ header.shadow .navbar a::after{
 }
 .home-text span{ /*Estilo para el texto de discovery*/
     color: var(--bg-color);
-    font-weight: 400;/*grosor del texto*/ 
+    font-weight: 405;/*grosor del texto*/ 
+    text-shadow: 2px 2px 9px var(--text-color);
 }
 .home-text h1{ /*Estilo para el texto de Explore*/
     color: var(--bg-color);
     font-size: 3.4rem; /* tamaño del texto, rem se usa para mas flexibilidad */
     font-weight: 700; /*texto grueso*/
     margin-bottom: 1rem; /* Espacio  del texto 'Explore' debajo del título para que no quede pegado al texto de arriba */
+    text-shadow: 2px 3px 10px var(--text-color);/*Le puse un pequeño shdow al texto*/
 }
 .btn { /*estilo de boton*/
     padding: 0.7rem; 
     background: var(--text-color); /*color de fondo del boton*/
     color: var(--bg-color); /*color de la fuente*/
     font-weight: 500;
+    border-radius: 10px;
 }
 .btn:hover { /*estilo para que cuando pase el cursor aparezca el color de bg*/
     background: #01151d;
@@ -178,6 +181,7 @@ header.shadow .navbar a::after{
     width: 250px;
     height: 100%;
     overflow: hidden;
+    border-radius: 10px;
 }
 /* Hace que la imagen ocupe todo el espacio disponible */
 .place-img img{
@@ -211,6 +215,7 @@ header.shadow .navbar a::after{
     color: var(--bg-color);
     font-size: 20px;
     cursor: pointer;
+    border-radius: 9px;
 }
 /* Cambia el color del ícono cuando el mouse pasa sobre la caja */
 .places-container .box:hover .place-icon{
