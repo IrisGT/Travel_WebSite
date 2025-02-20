@@ -251,6 +251,7 @@ header.shadow .navbar a::after{
 }
 /* Ajusta el contenedor de la imagen */
 .about-img{
+    scale: 0.9;
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -259,7 +260,7 @@ header.shadow .navbar a::after{
 /* Ajusta la imagen */
 .about-img img{
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 /* Efecto de zoom en la imagen al pasar el mouse */
 .about-img img:hover{
